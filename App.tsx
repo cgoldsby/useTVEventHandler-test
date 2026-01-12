@@ -79,9 +79,23 @@ function AppContent() {
   };
 
   return (
-    <View style={styles.container}>
+    <View 
+      style={styles.container}
+      onFocusCapture={(e) => {
+        console.log('🎯 CAPTURE: Focus captured at container level', {
+          target: e.target,
+          currentTarget: e.currentTarget,
+        });
+      }}
+      onBlurCapture={(e) => {
+        console.log('💨 CAPTURE: Blur captured at container level', {
+          target: e.target,
+          currentTarget: e.currentTarget,
+        });
+      }}
+    >
       <View style={styles.header}>
-        <Text style={styles.title}>TV Remote Test</Text>
+        <Text style={styles.title}>TV Remote Test (with Capture)</Text>
       </View>
 
       <View style={styles.gridContainer}>
